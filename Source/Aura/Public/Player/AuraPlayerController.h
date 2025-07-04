@@ -6,7 +6,9 @@
 #include "GameFramework/PlayerController.h"
 #include "AuraPlayerController.generated.h"
 
+struct FInputActionValue;
 class UInputMappingContext;
+class UInputAction;
 
 /**
  * 
@@ -25,4 +27,8 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = Input)
 	TObjectPtr<UInputMappingContext> MappingContext;
 
+	UPROPERTY(EditDefaultsOnly, Category = Input)
+	TObjectPtr<UInputAction> MoveAction;
+
+	void Move(const FInputActionValue& InputActionValue);
 };
