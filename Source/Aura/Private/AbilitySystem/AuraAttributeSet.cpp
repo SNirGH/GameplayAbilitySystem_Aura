@@ -56,7 +56,7 @@ void UAuraAttributeSet::SetEffectProperties(const FGameplayEffectModCallbackData
 		Props.SourceController = Props.SourceASC->AbilityActorInfo->PlayerController.Get();
 		if (!Props.SourceController and !Props.SourceAvatarActor)
 		{
-			if (const APawn* Pawn = Cast<APawn>(Props.SourceController))
+			if (const APawn* Pawn = Cast<APawn>(Props.SourceAvatarActor))
 			{
 				Props.SourceController = Pawn->GetController();
 			}
