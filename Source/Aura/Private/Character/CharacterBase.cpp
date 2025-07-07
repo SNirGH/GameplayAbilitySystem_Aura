@@ -3,6 +3,8 @@
 
 #include "Character/CharacterBase.h"
 
+#include "AbilitySystemComponent.h"
+
 ACharacterBase::ACharacterBase()
 {
 	PrimaryActorTick.bCanEverTick = false;
@@ -22,4 +24,14 @@ void ACharacterBase::BeginPlay()
 {
 	Super::BeginPlay();
 	
+}
+
+void ACharacterBase::InitializePrimaryAttributes() const
+{
+	check(IsValid(GetAbilitySystemComponent()));
+	check(DefaultPrimaryAttributes);
+	
+	const FGameplayEffectContextHandle ContextHandle = GetAbilitySystemComponent()->MakeEffectContext();
+	const FGameplayEffectSpecHandle SpecHandle = GetAbilitySystemComponent()->MakeOutgoingSpec(DefaultPrimaryAttributes, 1.0F, ContextHandle);
+	GetAbilitySystemComponent()->ApplyGameplayEffectSpecToTarget(*SpecHandle.Data.Get(), GetAbilitySystemComponent());
 }
