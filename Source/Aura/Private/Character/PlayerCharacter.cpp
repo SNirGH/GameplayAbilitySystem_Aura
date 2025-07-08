@@ -43,7 +43,7 @@ void APlayerCharacter::InitAbilityActorInfo()
 		}
 	}
 
-	InitializePrimaryAttributes();
+	InitializeDefaultAttributes();
 }
 
 void APlayerCharacter::PossessedBy(AController* NewController)
