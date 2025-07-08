@@ -42,4 +42,5 @@ void ACharacterBase::InitializeDefaultAttributes() const
 {
 	ApplyEffectToSelf(DefaultPrimaryAttributes, 1.0F);
 	ApplyEffectToSelf(DefaultSecondaryAttributes, 1.0F);
+	ApplyEffectToSelf(DefaultVitalAttributes, 1.0F);
 }
