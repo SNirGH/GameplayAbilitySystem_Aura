@@ -7,10 +7,13 @@
 #include "GameplayTagContainer.h"
 #include "AuraPlayerController.generated.h"
 
-class UAuraInputConfig;
 struct FInputActionValue;
+
+class UAuraAbilitySystemComponent;
+class UAuraInputConfig;
 class UInputMappingContext;
 class UInputAction;
+
 class IEnemyInterface;
 
 /**
@@ -48,4 +51,8 @@ private:
 
 	UPROPERTY(EditDefaultsOnly, Category = Input)
 	TObjectPtr<UAuraInputConfig> InputConfig;
+
+	TObjectPtr<UAuraAbilitySystemComponent> AuraAbilitySystemComponent;
+
+	UAuraAbilitySystemComponent* GetASC();
 };
